@@ -1,0 +1,10 @@
+<html>
+  <br><br><br><br>
+  signup works!<br>
+  <form #myform="ngForm" (ngSubmit)="submit()">
+  UserId:<input type = "text" [(ngModel)]="user.UserId" name="UserId"><br><br>
+  Password:<input type = "password" [(ngModel)]="user.Password" name="Password" ><br><br>
+  <input type="submit" value="submit"><br>
+  <p>Already a member?<a routerLink='/login'>Sign In</a></p>
+  </form>
+</html>

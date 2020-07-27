@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a routerLinkActive="active" routerLink="home">Home</a></li>
+  <li *ngIf="user"><a [routerLink]="['/product-list',user]">Product-List</a></li>
+  <li *ngIf="user"><a [routerLink]="['/product-create',user]">Create-Product</a></li>
+  <li *ngIf="user" style="float: right;"><a [routerLink]="" (click)="logoff()">Log Off</a></li>
+  <li *ngIf="user" style="float: right;"><a>Welcome , {{user}}</a></li>
+  <li *ngIf="!user" style="float: right;"><a routerLink="signup">signup</a></li>
+  <li *ngIf="!user" style="float: right;"><a routerLink="login">Login</a></li>
+</ul>
+</body>
+</html>
+

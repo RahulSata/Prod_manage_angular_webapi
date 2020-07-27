@@ -1,0 +1,61 @@
+<app-header></app-header><br><br>
+<table datatable class="display" style="width:100%" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+    <thead>
+        <tr>
+            <!-- <th class="no-sort"><input type="checkbox" id="checkBoxAll" class="custom-checkbox" /></th> -->
+            <th>
+                Name
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th class="no-sort">
+                Short_description
+            </th>
+             <th class="no-sort">
+                
+            </th>
+
+            <!--<th class="no-sort"></th> -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of products; let i=index">
+        
+            <!-- <td><input type="checkbox" name="ID" value="@item.Id" class="custom-checkbox chkCheckBoxId" /></td> -->
+            <td>
+                {{data.Name}}
+            </td>
+            <td>
+                {{data.Category}}
+            </td>
+            <td>
+                {{data.Price}}
+            </td>
+            <td>
+                {{data.Quantity}}
+            </td>
+            <td>
+                {{data.Short_Description}}
+            </td>
+            
+            <td>
+                <!-- <a  class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-eye-open"></span> View
+                </a> -->
+                <a [routerLink]="['/edit',data.Id]"  class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-pencil">Edit</span>
+                </a>
+                <a [routerLink]="['/delete',data.Id]" class="btn btn-default btn-sm" onclick="return confirm('Are you sure?')">
+                    <span class="glyphicon glyphicon-trash">Delete</span>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
